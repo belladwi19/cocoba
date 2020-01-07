@@ -26,7 +26,7 @@ $query = mysqli_query($conn, "SELECT * FROM activity WHERE endDate >= now() ");
             <?php while ($data = mysqli_fetch_assoc($query)) { ?>
                 <div class="col-sm-6 col-md-3">
                     <div class="card mb-4" style="width: 248px">
-                        <img class="card-img-top" src="assets/img/5dbec9bad90416b226d22932_thumbnail370x250.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="admin/img/<?= $data['img'] ?>" alt="Card image cap" height="161px;">
                         <div class="card-body">
                             <?php if ($data['tipe'] == 'project') { ?>
                                 <span class="my-2 mr-2 badge badge-pill badge-success badge-outlined" style="font-size: 8px"><?= $data['tipe'] ?></span>

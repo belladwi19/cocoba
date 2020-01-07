@@ -75,7 +75,7 @@
          <div class="modal-dialog modal-dialog-centered" role="document">
              <div class="modal-content" style="padding: 30px;">
                  <form action="cek_login.php" class="inner-login" method="post">
-                    
+
                      <h4 class="text-center">User Login</h4>
                      <div class="modal-body">
                          <div id="not-login-msg" style="display: none">
@@ -91,11 +91,13 @@
                          </div>
 
                      </div>
-                     <div class="modal-footer mb-2" style="border-top: none">
-                         <tr>
-                             <td colspan=2></td>
-                             <td><input class="btn btn-primary btn-block" style="border-radius:10rem; padding:10px" type="submit" name="submit" value="LOGIN"></td>
-                         </tr>
+                     <div class="modal-footer mb-2" style="border-top: none;margin-top:-20px">
+
+                         <input class="btn btn-primary btn-block" style="border-radius:10rem; padding:10px" type="submit" name="submit" value="LOGIN">
+                         <div class="w-100 text-center mt-2">
+                             <hr>
+                             <a href="daftar.php">Create an Account!</a>
+                         </div>
                          <!-- <tr>
                              <td colspan=3><a id='btn-register' href="daftar.php" data-toggle="modal" data-target="#modalregister">DAFTAR</a></td>
                          </tr> -->
@@ -145,11 +147,109 @@
          </div>
      </div>
 
+     <!-- Modal Relawan -->
+
+     <div class="modal fade" id="modalRelawan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content bg-light" style="width: 565px;">
+                 <div class="content-modal" style="width:470px;margin:0 auto;">
+                     <div class="modal-header" style="border-bottom: none">
+                         <h5 class="modal-title w-100 text-center" id="exampleModalLabel">
+                             <p>Daftar Aktivitas</p>
+                             <hr class="search-activity-line">
+                         </h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                     <form action="" class="formulir-pendaftaran">
+                         <div class="modal-body">
+                             <fieldset disabled="disabled" class="bg-white" style="padding:15px;border-radius:10px; border: 1px solid gray">
+                                 <div class="row ml-3">
+                                     <div class="col-md-3">
+                                         Kepada :
+                                     </div>
+                                     <div class="col-md-7">
+                                         <span style="color: #100264;">DON</span><span style="color: #D74004">TEERS</span> Indonesia
+                                     </div>
+                                 </div>
+
+                             </fieldset>
+                             <fieldset disabled="disabled" class="bg-white mt-2" style="padding:15px;border-radius:10px; border: 1px solid gray">
+                                 <div class="row ml-3">
+                                     <div class="col-md-3">
+                                         Subyek :
+                                     </div>
+                                     <div class="col-md-8">
+                                         <?= $data['title'] ?>
+                                     </div>
+                                 </div>
+
+                             </fieldset>
+
+                             <div class="form-group mt-3">
+                                 <label for="" style="font-weight: 400; font-size: 13px">Mengapa Anda tertarik untuk menjadi relawan pada aktivitas ini?
+                                 </label>
+                                 <textarea name="answer1" id="answer1" class="form-control" placeholder="Tulis Jawaban" rows="7"></textarea>
+                             </div>
+
+                             <div class="form-group mt-3">
+                                 <label for="" style="font-weight: 400; font-size: 13px">Mengapa Anda adalah relawan yang tepat untuk aktivitas ini?
+                                 </label>
+                                 <textarea name="answer2" id="answer2" class="form-control" placeholder="Tulis Jawaban" rows="7"></textarea>
+                             </div>
+
+                             <div class="contact-relawan">
+                                 <label for="" style="font-weight: 400; font-size: 13px">
+                                     Masukan nomor handphone dan alamat email untuk memudahkan organisasi menghubungi Anda.
+                                 </label>
+                                 <div class="form-inline">
+                                     <input type="number" placeholder="HP" class="form-control mr-2" name="contact_hp" style="width: 200px">
+                                     <input type="email" placeholder="email" class="form-control" name="contact_email" style="width: 225px">
+                                 </div>
+                             </div>
+
+                         </div>
+                         <div class="modal-footer" style="border-top: none">
+                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                             <button type="submit" class="btn btn-primary kirim">Kirim Formulir Pendaftaran</button>
+                         </div>
+                     </form>
+                 </div>
+             </div>
+         </div>
+     </div>
 
      <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
      <script src="https://kit.fontawesome.com/cb2557e918.js" crossorigin="anonymous"></script>
+
+     <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+
+     <script>
+         $(document).ready(function() {
+             $("#regis-btn").click(function() {
+                 $("#modallogin").modal("hide");
+             });
+
+             $('#not-login').click(function() {
+                 $('#not-login-msg').show();
+             });
+             $('.btn-auth').click(function() {
+                 $('#not-login-msg').hide();
+             })
+         })
+     </script>
+     <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+
+     <script>
+         $(document).ready(function() {
+             $('.kirim').attr('disabled', true);
+                 bootstrapValidate('#answer1', 'required:Please fill out this field!')
+         })
+     </script>
+
      </body>
 
      </html>

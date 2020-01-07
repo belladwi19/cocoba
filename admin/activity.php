@@ -22,8 +22,8 @@ $query = mysqli_query($conn, "SELECT * FROM activity");
                         <th>Location</th>
                         <th>Type</th>
                         <th>Category</th>
-                        <th>Start Date</th>    
-                        <th>End Date</th>    
+                        <th>Start Date</th>
+                        <th>End Date</th>
                         <th>Action</th>
 
                     </tr>
@@ -58,7 +58,7 @@ $query = mysqli_query($conn, "SELECT * FROM activity");
 
 <!-- Modal add -->
 <div class="modal fade" id="addActivity" tabindex="-1" role="dialog" aria-labelledby="addActivityLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-dialog modal-lg " role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addActivityLabel">Tambah Aktivitas</h5>
@@ -68,27 +68,44 @@ $query = mysqli_query($conn, "SELECT * FROM activity");
             </div>
             <form method="POST" enctype="multipart/form-data">
                 <div class="modal-body ">
-                    <div class="row">
-                        <div class="col">
+                    <div class="!row">
+                        <div class="!col">
                             <div class="form-group">
                                 <label for=""><strong>Title</strong></label>
                                 <input type="text" name="title" id="title" placeholder="title..." class="form-control border-1 bg-light sm">
                             </div>
                             <div class="form-group">
                                 <label for=""><strong>Description</strong></label>
-                                <textarea class="form-control border-1 bg-light sm" name="description" id="description" placeholder="description...."></textarea>
+                                <textarea class="form-control border-1 bg-light sm" name="description" id="editor" placeholder="description...."></textarea>
                             </div>
-                            <div class="form-group">
-                                <label for=""><strong>Category</strong></label>
-                                <select name="category" class="form-control border-1 sm bg-light">
-                                    <option value="">-- Choose --</option>
-                                    <option value="penanggulangan bencana">Penanggulangan Bencana</option>
-                                    <option value="lingkungan">Lingkungan</option>
-                                    <option value="pendidikan">Pendidikan</option>
-                                    <option value="pengembangan masyarakat">Pengembangan Masyarakat</option>
-                                    <option value="hak asasi manusia">Hak Asasi Manusia</option>
-                                </select>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="fom-group mb-2">
+                                        <label for="">Type</label>
+                                        <select name="tipe" class="form-control border-1 bg-light sm" id="tipe">
+                                            <option value="" selected>-- Choose --</option>
+                                            <option value="project">Project</option>
+                                            <option value="regular">Regular</option>
+                                            <option value="event">event</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for=""><strong>Category</strong></label>
+                                        <select name="category" class="form-control border-1 sm bg-light">
+                                            <option value="">-- Choose --</option>
+                                            <option value="penanggulangan bencana">Penanggulangan Bencana</option>
+                                            <option value="lingkungan">Lingkungan</option>
+                                            <option value="pendidikan">Pendidikan</option>
+                                            <option value="pengembangan masyarakat">Pengembangan Masyarakat</option>
+                                            <option value="hak asasi manusia">Hak Asasi Manusia</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
+
+
                             <div class="form-group">
                                 <label for=""><strong>Location</strong></label>
                                 <input type="text" name="location" id="location" class="form-control border-1 sm bg-light">
@@ -98,36 +115,69 @@ $query = mysqli_query($conn, "SELECT * FROM activity");
                                 <input type="file" name="img" id="img" class="form-control border-1 sm bg-light">
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="fom-group mb-2">
-                                <label for="">Type</label>
-                                <select name="tipe" class="form-control border-1 bg-light sm" id="tipe">
-                                    <option value="" selected>-- Choose --</option>
-                                    <option value="project">Project</option>
-                                    <option value="regular">Regular</option>
-                                    <option value="event">event</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Start Date</label>
-                                <input id="startDate" name="startDate" />
-                            </div>
-                            <div class="form-group">
-                                <label for="">End Date</label>
-                                <input id="endDate" name="endDate" />
-                            </div>
-                            <div id="timePick" style="display: none">
-                                <div class="form-group">
-                                    <label for="">Time Start</label>
-                                    <input id="startTime" name="startTime" />
+                        <div class="!col">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Start Date</label>
+                                        <input id="startDate" name="startDate" />
+                                    </div>
                                 </div>
-                                <div class="form-group" id="endTime">
-                                    <label for="">Time Start</label>
-                                    <input id="EndTime" name="EndTime" />
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">End Date</label>
+                                        <input id="endDate" name="endDate" />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div id="timePick" style="display: none">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="">Time Start</label>
+                                            <input id="startTime" name="startTime" />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group" id="endTime">
+                                            <label for="">Time Start</label>
+                                            <input id="EndTime" name="EndTime" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+
+                        <!-- Heading -->
+                        <div class="sidebar-heading">
+                            <p style="font-weight: 600">DETIL AKTIVITAS</p>
+                        </div>
+                        <hr class="sidebar-divider">
+                        <div class="detail-aktivitas">
+                            <div class="form-group">
+                                <label for=""><strong>Tugas Relawan</strong></label>
+                                <textarea name="tugas_relawan" id="editor2" placeholder="Tugas Relawan"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for=""><strong>Perlengkapan Relawan</strong></label>
+                                <textarea name="perlengkapan_relawan" id="editor3" placeholder="Perlengkapan Relawan"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for=""><strong>Metode Briefing</strong></label>
+                                <textarea name="metode_briefing" id="editor4" placeholder="Metode Briefing"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for=""><strong>Kriteria Relawan/Informasi Tambahan
+
+                                    </strong></label>
+                                <textarea name="informasi_tambahan" id="editor5" placeholder="Kriteria Relawan/Informasi Tambahan"></textarea>
+                            </div>
+                        </div>
                     </div>
+
 
                 </div>
                 <div class="modal-footer">
@@ -199,6 +249,56 @@ include_once 'template/footer.php';
         }
     })
 </script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(error => {
+            console.error('There was a problem initializing the editor.', error);
+        });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor2'))
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(error => {
+            console.error('There was a problem initializing the editor.', error);
+        });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor3'))
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(error => {
+            console.error('There was a problem initializing the editor.', error);
+        });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor4'))
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(error => {
+            console.error('There was a problem initializing the editor.', error);
+        });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor5'))
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(error => {
+            console.error('There was a problem initializing the editor.', error);
+        });
+</script>
 
 <?php
 
@@ -213,6 +313,10 @@ if (isset($_POST['Send'])) {
     $endDate = $_POST['endDate'];
     $startTime = $_POST['startTime'];
     $EndTime = $_POST['EndTime'];
+    $tugas_relawan = $_POST['tugas_relawan'];
+    $perlengkapan_relawan = $_POST['perlengkapan_relawan'];
+    $metode_briefing = $_POST['metode_briefing'];
+    $informasi_tambahan = $_POST['informasi_tambahan'];
     $foto = $_FILES['img']['name'];
     $tmp = $_FILES['img']['tmp_name'];
 
@@ -222,9 +326,9 @@ if (isset($_POST['Send'])) {
 
     if ($tipe == 'project') {
         if (move_uploaded_file($tmp, $path)) {
-            $query = "INSERT INTO activity(title,description, location, img, category, tipe, startDate, endDate) VALUES('$title','$description','$location','$foto_baru' ,'$category','$tipe','$startDate','$endDate')";
+            $query = "INSERT INTO activity(title,description, location, img, category, tipe, startDate, endDate, tugas_relawan, perlengkapan_relawan, metode_briefing, informasi_tambahan) VALUES('$title','$description','$location','$foto_baru' ,'$category','$tipe','$startDate','$endDate', $tugas_relawan, $perlengkapan_relawan, $metode_briefing, $informasi_tambahan)";
 
-            
+
             $run = mysqli_query($conn, $query);
             if ($run) {
                 header("Location:activity.php?msg=success_create");
@@ -237,9 +341,9 @@ if (isset($_POST['Send'])) {
             $timeStart = date('h:i:s', strtotime($startTime));
             $timeEnd = date('h:i:s', strtotime($EndTime));
 
-            $query = "INSERT INTO activity(title,description, location, img, category, tipe, startDate, endDate, startTime, endTime) VALUES('$title','$description','$location','$foto_baru', '$category','$tipe','$startDate','$endDate','$timeStart','$timeEnd')";
+            $query = "INSERT INTO activity(title,description, location, img, category, tipe, startDate, endDate, startTime, endTime, tugas_relawan, perlengkapan_relawan, metode_briefing, informasi_tambahan) VALUES('$title','$description','$location','$foto_baru', '$category','$tipe','$startDate','$endDate','$timeStart','$timeEnd', $tugas_relawan, $perlengkapan_relawan, $metode_briefing, $informasi_tambahan)";
 
-            
+
             $run = mysqli_query($conn, $query);
             if ($run) {
                 header("Location:activity.php?msg=success_create");
@@ -247,12 +351,12 @@ if (isset($_POST['Send'])) {
                 header("Location:activity.php?msg=failed_create");
             }
         }
-    }else{
+    } else {
         if (move_uploaded_file($tmp, $path)) {
             $timeStart = date('h:i:s', strtotime($startTime));
             $timeEnd = date('h:i:s', strtotime($EndTime));
 
-            $query = "INSERT INTO activity(title,description, location, img, category, tipe, startDate, endDate, startTime, endTime) VALUES('$title','$description','$location','$foto_baru', '$category','$tipe','$startDate','$endDate','$timeStart','$timeEnd')";
+            $query = "INSERT INTO activity(title,description, location, img, category, tipe, startDate, endDate, startTime, endTime, tugas_relawan, perlengkapan_relawan, metode_briefing, informasi_tambahan) VALUES('$title','$description','$location','$foto_baru', '$category','$tipe','$startDate','$endDate','$timeStart','$timeEnd', $tugas_relawan, $perlengkapan_relawan, $metode_briefing, $informasi_tambahan)";
 
 
             $run = mysqli_query($conn, $query);
@@ -262,6 +366,6 @@ if (isset($_POST['Send'])) {
                 header("Location:activity.php?msg=failed_create");
             }
         }
-    }  
+    }
 }
 ?>

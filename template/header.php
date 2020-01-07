@@ -1,4 +1,7 @@
-<?php include_once 'config.php'; ?>
+<?php
+session_start();
+include_once 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +19,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
 
         <div class="container">
-            <a class="navbar-brand" href="index.php"><img id="brand-logo" src="assets/img/DONTEERS.png" alt=""></a>
+            <a class="navbar-brand mr-4" href="index.php"><img id="brand-logo" src="assets/img/DONTEERS.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,7 +28,7 @@
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item active mr-2">
-                        <a class="nav-link" id="menu-btn" href="activity.php">Cari Aktivitas</a>
+                        <a class="nav-link" id="menu-btn" href="search-activity.php">Cari Aktivitas</a>
                     </li>
                     <li class="nav-item active mr-2">
                         <a class="nav-link" id="menu-btn" href="#">Menu</a>
@@ -39,20 +42,31 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="about.php">Tentang Donteers</a>
-                            <!-- <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a> -->
                         </div>
                     </li>
 
                 </ul>
                 <ul class="navbar-nav ">
-                    <li class="nav-item active">
-                        <a class="nav-link" id="menu-btn" href="#" data-toggle="modal" data-target="#modallogin">Login</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" id="regis-btn" href="#">Register</a>
-                    </li>
+                    <?php if (isset($_SESSION['email'])) { ?>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle " id="menu-btn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Hy, <?= $_SESSION['username']; ?>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="profile.php">Profile</a>
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="logout.php">Logout</a>
+                            </div>
+                        </li>
+                    <?php } else { ?>
+                        <li class="nav-item active">
+                            <a class="nav-link btn-auth" id="menu-btn" href="#" data-toggle="modal" data-target="#modallogin">Login</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" id="regis-btn" href="#">Register</a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>

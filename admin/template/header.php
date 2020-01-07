@@ -1,11 +1,9 @@
 <?php ob_start();
 session_start();
-if(!isset($_SESSION['status']))
-{
+if (!isset($_SESSION['status'])) {
     echo ("<script>location.href='login.php?msg=not_loggin'</script>");
-}else{
-
-}   
+} else {
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +26,7 @@ if(!isset($_SESSION['status']))
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
 
     <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body id="page-top">
@@ -157,15 +155,15 @@ if(!isset($_SESSION['status']))
                     </button>
 
                     <!-- Topbar Search -->
-                   
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        
-                        
-                      
+
+
+
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -173,11 +171,11 @@ if(!isset($_SESSION['status']))
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 medium"><?= $_SESSION['status'] ?></span>
-                                
+
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                
+
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
